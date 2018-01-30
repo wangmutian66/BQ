@@ -89,7 +89,7 @@
 
 
 -(void)wmt_inputview:(WMTinputview *) inputView moreBtnClickWith:(NSInteger) moreStyle{
-    NSLog(@"------这回好了-----");
+   
     if (self.view.frame.origin.y == 0) {
         
         [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
@@ -130,6 +130,8 @@
     }];
     
 }
+
+
 
 
 @end

@@ -16,13 +16,23 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dv7-Ll-UGg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nQT-0c-A0H">
+                    <rect key="frame" x="0.0" y="44" width="375" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJp-1O-9ju">
                     <rect key="frame" x="5" y="5" width="34" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="34" id="CHW-I6-Eyf"/>
                         <constraint firstAttribute="height" constant="34" id="EGg-i6-pyt"/>
                     </constraints>
-                    <state key="normal" title="Button" backgroundImage="ToolViewEmotion"/>
+                    <state key="normal" backgroundImage="ToolViewEmotion"/>
                     <state key="highlighted" backgroundImage="ToolViewEmotionHL"/>
                     <connections>
                         <action selector="biaoqing:" destination="-1" eventType="touchUpInside" id="eAs-XW-dLr"/>
@@ -31,6 +41,7 @@
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入内容" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Md-E6-5Kz">
                     <rect key="frame" x="44" y="5" width="326" height="34"/>
                     <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
