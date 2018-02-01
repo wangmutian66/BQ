@@ -125,7 +125,7 @@
     [self backinit];
     //叫键盘回去
     [self.view endEditing:YES];
-//     self.inputViewS.jianpanbtn.hidden=NO;
+     self.inputViewS.jianpanbtn.hidden=YES;
 }
 
 //将more恢复到原样
