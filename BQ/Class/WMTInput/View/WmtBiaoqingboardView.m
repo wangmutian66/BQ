@@ -68,8 +68,16 @@ static int xddemo;
 }
 -(void)moreinputBtnClick:(UIButton *)btn{
     
-    NSLog(@"---BTN:%@---",btn.titleLabel.text);
+    if ([self.delegate respondsToSelector:@selector(wmt_biaoqingboaderView:clickbiaoqing:)]) {
+        
+        [self.delegate wmt_biaoqingboaderView:self clickbiaoqing:btn];
+        
+    }
+    
+  
 }
+
+
 
 
 
@@ -174,11 +182,17 @@ static int xddemo;
     btnbutton.frame=CGRectMake(self.wmt_width - 70, 0, 70, kWMTbutton);
 //    btnbutton.backgroundColor = [UIColor colorWithRed:4 green:122 blue:251 alpha:1];
     btnbutton.backgroundColor = [UIColor blueColor];
-    
+    [btnbutton addTarget:self action:@selector(btnsend) forControlEvents:UIControlEventTouchUpInside];
     [viewbottom addSubview:btnbutton];
 }
 
-
+-(void)btnsend{
+    if ([self.delegate respondsToSelector:@selector(btnsenddd)]) {
+        
+        [self.delegate btnsenddd];
+        
+    }
+}
 
 
 

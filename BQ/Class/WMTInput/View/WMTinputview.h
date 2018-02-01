@@ -21,6 +21,11 @@
 
 +(instancetype) wmt_inputview;
 - (IBAction)biaoqing:(id)sender;
+- (IBAction)jianpan:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *jianpanbtn;
+- (IBAction)jianpanb1:(UIButton *)sender;
+- (IBAction)biaoqing1:(UIButton *)sender;
+
 /** 代理 */
 @property (nonatomic, weak) id<WMTinputview> delegate;
 @end

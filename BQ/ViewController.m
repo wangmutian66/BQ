@@ -11,7 +11,7 @@
 #import "UIView+Frame.h"
 #import "WmtBiaoqingboardView.h"
 #define kInputViewH 44
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,WMTinputview>
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,WMTinputview,WmtBiaoqingboardView,UITextFieldDelegate>
 @property(nonatomic,strong)UITableView *tableview;
 @property(nonatomic,strong)WMTinputview *inputViewS;
 @property(nonatomic,strong) WmtBiaoqingboardView *biaoqing;
@@ -23,7 +23,7 @@
     if(!_biaoqing){
         _biaoqing =[[WmtBiaoqingboardView alloc] init];
         _biaoqing.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds), CGRectGetWidth(self.view.bounds), kWMTMoreinputkeyboardView);
-        
+        _biaoqing.delegate=self;
         [[UIApplication sharedApplication].keyWindow addSubview:_biaoqing];
     }
     return _biaoqing;
@@ -54,6 +54,9 @@
 }
 
 
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -61,6 +64,7 @@
     [self.view addSubview:self.tableview];
     [self.view addSubview:self.inputViewS];
     
+    self.inputViewS.testfield.delegate=self;
     //监听键盘弹出，对相应的布局做修改
     [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillChangeFrameNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
     
@@ -72,7 +76,7 @@
             [self.view setNeedsLayout];
             self.inputViewS.wmt_y=self.view.bounds.size.height - 44;
         }];
-        
+//        self.inputViewS.jianpanbtn.hidden=YES;
         
     }];
     
@@ -117,9 +121,11 @@
 
 //监听滚动滚动
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+   
     [self backinit];
     //叫键盘回去
     [self.view endEditing:YES];
+//     self.inputViewS.jianpanbtn.hidden=NO;
 }
 
 //将more恢复到原样
@@ -131,6 +137,26 @@
     
 }
 
+
+- (void)wmt_biaoqingboaderView:(WmtBiaoqingboardView *)inputView  clickbiaoqing:(UIButton *)btn{
+    NSLog(@"---------");
+      NSLog(@"---BTN:%@---",btn.titleLabel.text);
+     NSString *testfile = self.inputViewS.testfield.text;
+    
+    self.inputViewS.testfield.text=[NSString stringWithFormat:@"%@%@",testfile,btn.titleLabel.text];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self btnsenddd];
+    return YES;
+}
+
+//发送消息
+-(void)btnsenddd{
+    NSString *filetext = self.inputViewS.testfield.text;
+    NSLog(@"输入内容：%@",filetext);
+    self.inputViewS.testfield.text=@"";
+}
 
 
 
